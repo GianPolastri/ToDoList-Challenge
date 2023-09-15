@@ -2,7 +2,7 @@
   "task": [
     {
       "id": 2,
-      "task_name": "this is a new task added with the functionality it needs"
+      "task_name": "Now is properly working with the minimum requirements nedeed"
     },
     {
       "id": 3,
@@ -10,11 +10,7 @@
     },
     {
       "id": 4,
-      "task_name": "holahola"
-    },
-    {
-      "id": 5,
-      "task_name": "esto es una tercera prueba"
+      "task_name": "Try N°9"
     }
   ]
 }
