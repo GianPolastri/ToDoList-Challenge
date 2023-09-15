@@ -42,10 +42,13 @@ export class DashboardComponent implements OnInit {
   }
 
   editTask(){
-    this.newTask.task_name = this.editTaskValue;  
-    this.crudServide.editTask(this.newTask).subscribe(res => {
-      this.ngOnInit();
-    }, err => { alert('An error has occured while updating the task') });
+    if(this.editTaskValue.length !== 0){
+      this.newTask.task_name = this.editTaskValue
+      this.crudServide.editTask(this.newTask).subscribe(res => {
+        this.ngOnInit();
+      }, err => { alert('An error has occured while updating the task') });
+    }
+    else throw new Error('It´s not possible to leave a task empty')  
   }
 
   deleteTask(etask: Task){

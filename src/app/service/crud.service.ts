@@ -25,6 +25,7 @@ export class CrudService {
     return this.http.delete<Task>(this.serviceURL+'/'+task.id);
    }
    editTask(task: Task): Observable<Task> {
-    return this.http.put<Task>(this.serviceURL+'/'+task.id, task);
+    if(task.task_name.length !== 0) return this.http.put<Task>(this.serviceURL+'/'+task.id, task);
+    else throw new Error('It´s not possible to leave a task empty');
    }
 }
