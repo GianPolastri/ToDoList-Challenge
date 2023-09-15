@@ -1,29 +1,29 @@
-<div class="container-fluid bg-light">
-    <div class="container bg-light" >
-        <div class="row mt-4" style="height: 500px">
+<div class="container-fluid " style="background-image: url(https://img.freepik.com/free-vector/minimal-star-pattern-vector-with-pastel-background-wallpaper_53876-111543.jpg?w=900&t=st=1694797137~exp=1694797737~hmac=f9171c85e3ae78719376d9a6eb8b049b0390ed59c3aa6171f154d6d1848928ce); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%; height: 595px">
+    <div class="container" >
+        <div class="row pt-4 rounded" style="height: 500px">
             <div class="col"></div>
-            <div class="col-md-6 mmb-2 bg-white shadow" >
+            <div class="col-md-6 bg-gradient shadow rounded-4" style="height: 500px; --bs-bg-opacity: .85; background-color: rgba(127, 255, 212, 0.591);">
 
-                <div class="card bg-warning mt-4 mb-4">
+                <div class="card bg-info shadow mt-4 mb-4">
                     <h4 class="text-white ps-3 pt-2 pb-2 ">To Do List</h4>
                 </div>
 
-                <div class="shadow">
+                <div class="shadow rounded-4">
                     <div class="input-group p-4 ">
                         <input type="text" class="form-control" placeholder="Add a new task" name="task" [(ngModel)]="newTaskValue">
-                        <button class="btn btn-outline-success " type="button" (click)="addTask()">Add</button>
+                        <button class="btn btn-outline-success border-2" type="button" (click)="addTask()">Add</button>
                     </div>
                 </div>
 
-                <h5 class="text-primary mt-4">Tasks: </h5>
+                <h5 class="text-balck mt-4 rounded-4">Tasks: </h5>
 
-                <div style="overflow-y: auto; height: 350px;">
+                <div class="rounded-4" style="overflow-y: auto; height: 250px;">
                     <div class="m-3" *ngFor="let task of allTask">
-                        <div class="p-2 shadow border">
-                            <div class="input-group row ps-3">
-                                <div class="card col-md-10"> {{task.task_name}} </div>
-                                <button class="btn btn-outline-primary col me-1 ms-1" data-bs-toggle="modal" type="button" data-bs-target="#exampleModal" (click)="call(task)">e</button>
-                                <button class="btn btn-outline-danger col" (click)="deleteTask(task)">X</button>
+                        <div class="p-2 shadow border border-0 rounded-4">
+                            <div class="input-group row ps-3 rounded-4">
+                                <div class="card col-md-9 "> {{task.task_name}} </div>
+                                <button class="btn btn-outline-primary border-2 col me-1 ms-1" data-bs-toggle="modal" type="button" data-bs-target="#exampleModal" (click)="call(task)">e</button>
+                                <button class="btn btn-outline-danger border-2 col" (click)="deleteTask(task)">X</button>
                             </div>
                         </div>
                     </div>
