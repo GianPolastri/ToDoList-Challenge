@@ -14,10 +14,13 @@ export class DashboardComponent implements OnInit {
   allTask: Task[] = [];
 
   newTaskValue: string = '';
+  editTaskValue: string = '';
 
   constructor(private crudServide: CrudService){}
 
   ngOnInit(): void {
+    this.editTaskValue = '';
+    this.newTaskValue = '';
     this.newTask = new Task();
     this.allTask = [];
     this.getAllTask();
@@ -29,13 +32,17 @@ export class DashboardComponent implements OnInit {
     }, err => { alert(err); });
   }
 
-  addTask(etask: Task){
-    this.crudServide.addTask(etask).subscribe(res=>{
+  addTask(){
+    this.newTask.task_name = this.newTaskValue;
+
+    this.crudServide.addTask(this.newTask).subscribe(res=>{
       this.ngOnInit();
+      this.newTaskValue = '';
     }, err => { alert(err); })
   }
 
   editTask(){
+    this.newTask.task_name = this.editTaskValue;  
     this.crudServide.editTask(this.newTask).subscribe(res => {
       this.ngOnInit();
     }, err => { alert('An error has occured while updating the task') });
@@ -45,6 +52,13 @@ export class DashboardComponent implements OnInit {
     this.crudServide.deleteTask(etask).subscribe(res => {
       this.ngOnInit();
     }, err => { alert('Failed to delete the task')})
+  }
+
+  call(etask: Task){
+
+    this.newTask = etask;
+    this.editTaskValue = etask.task_name;
+
   }
 
 
