@@ -15,7 +15,8 @@ export class CrudService {
    }
 
    addTask(task: Task): Observable<Task> {
-    return this.http.post<Task>(this.serviceURL, task);
+    if(task.task_name.length !== 0) return this.http.post<Task>(this.serviceURL, task);
+    else throw new Error('The task cannot be empty');
    }
    getAllTask(): Observable<Task[]> {
     return this.http.get<Task[]>(this.serviceURL);
